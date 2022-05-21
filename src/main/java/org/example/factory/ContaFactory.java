@@ -1,17 +1,25 @@
 package org.example.factory;
 
-import org.example.dominios.Cliente;
-import org.example.dominios.Conta;
-import org.example.dominios.TipoConta;
+import org.example.dominios.*;
 
 import java.util.Random;
 
 public class ContaFactory {
 
     public static Conta createConta(Cliente cliente, TipoConta tipoConta, String agencia){
-        String numeroConta = String.format("%04d", new Random().nextInt());
+        var numeroConta = String.format("%04d", new Random().nextInt());
+        Conta conta = null;
+        switch (tipoConta){
+            case SALARIO:
+                conta = new ContaSalario(numeroConta,agencia);
+                break;
+            case POUPANCA:
+                conta = new ContaPoupanca(numeroConta,agencia);
+                break;
+            case CORRENTE:
+                conta = new Conta(numeroConta, agencia);
+        }
 
-        Conta conta = new Conta(numeroConta, agencia, tipoConta);
 
         cliente.addConta(conta);
         return conta;
