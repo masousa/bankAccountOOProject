@@ -10,13 +10,12 @@ public class Conta {
 
     private String numeroConta;
     private String agencia;
-    private TipoConta tipoConta;
-    public Conta(){}
+    protected TipoConta tipoConta;
 
-    public Conta(String numeroConta, String agencia, TipoConta tipoConta) {
+    public Conta(String numeroConta, String agencia) {
         this.numeroConta = numeroConta;
         this.agencia = agencia;
-        this.tipoConta = tipoConta;
+        this.tipoConta = TipoConta.CORRENTE;
     }
 
 
@@ -40,6 +39,10 @@ public class Conta {
     public BigDecimal sacar(BigDecimal valor){
         return BigDecimal.ZERO;
     }
+
+  public BigDecimal sacar(Double bigDecimal){
+        return BigDecimal.ZERO;
+  }
 
     public BigDecimal transferir(BigDecimal valor){
         return BigDecimal.ZERO;

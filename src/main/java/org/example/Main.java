@@ -22,7 +22,9 @@ public class Main {
                 case 1:
                     CriarConta criarConta = new CriarConta();
                     criarConta.executar(scanner);
-
+                    break;
+                case 2:
+                    System.out.println("Ainda em construção");
                     break;
                 default:
                     System.out.println("Opcao errada");
