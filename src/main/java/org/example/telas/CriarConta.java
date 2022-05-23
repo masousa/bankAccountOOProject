@@ -29,9 +29,9 @@ public class CriarConta {
         }else{
 
             Conta minhaConta = ContaFactory.createConta(cliente, tipoConta,agencia);
-            System.out.printf("Cliente %s. %n \t Sua conta foi criada com sucesso " +
+            System.out.printf("Cliente %s. %n \t Sua conta %s foi criada com sucesso " +
                     "%n \t Agência: %s %n \t Conta %s %n "
-                    , cliente.getNome(),minhaConta.getAgencia(),minhaConta.getNumeroConta());
+                    , cliente.getNome(),minhaConta.getTipoConta().getLabel(),minhaConta.getAgencia(),minhaConta.getNumeroConta());
 
         }
 
