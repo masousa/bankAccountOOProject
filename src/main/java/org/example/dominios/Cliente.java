@@ -26,4 +26,8 @@ public class Cliente {
     public void addConta(Conta conta){
         contas.add(conta);
     }
+
+    public ArrayList<Conta> getContas() {
+        return contas;
+    }
 }

@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.telas.AcessarConta;
 import org.example.telas.CriarConta;
 
 import java.util.Scanner;
@@ -24,7 +25,9 @@ public class Main {
                     criarConta.executar(scanner);
                     break;
                 case 2:
-                    System.out.println("Ainda em construção");
+                    AcessarConta acessarConta = new AcessarConta();
+                    acessarConta.execute(scanner);
+
                     break;
                 default:
                     System.out.println("Opcao errada");

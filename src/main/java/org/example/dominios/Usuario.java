@@ -13,8 +13,8 @@ public class Usuario {
         return login;
     }
 
-    public boolean autenticar(){
-        return false;
+    public boolean autenticar(String login, String senha){
+        return this.login.equals(login) && this.senha.equals(senha);
     }
 
 }
