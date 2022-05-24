@@ -16,6 +16,7 @@ public class Conta {
         this.numeroConta = numeroConta;
         this.agencia = agencia;
         this.tipoConta = TipoConta.CORRENTE;
+
     }
 
 
