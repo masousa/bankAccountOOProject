@@ -1,10 +1,11 @@
 package org.example.telas;
 
 import org.example.dominios.Cliente;
-import org.example.dominios.Conta;
+import org.example.dominios.ContaSimples;
 import org.example.dominios.TipoConta;
 import org.example.factory.ContaFactory;
 import org.example.repository.ClienteRepository;
+import org.example.repository.ContaRepository;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -35,14 +36,19 @@ public class CriarConta {
                 System.out.println("Não foi informado o tipo da conta");
             }else{
 
-                Conta minhaConta = ContaFactory.createConta(cliente, tipoConta,agencia);
+                //TODO avaliar se o numero da conta já existe e se é menor que zero.
+                ContaSimples minhaContaSimples = ContaFactory.createConta(cliente, tipoConta,agencia);
                 if(opcaoExisteCliente>1){
-                    ClienteRepository.addCliente(cliente);
+                    ClienteRepository repository = new ClienteRepository();
+                    repository.save(cliente);
                 }
+
+                ContaRepository contaRepository = new ContaRepository();
+                contaRepository.save(minhaContaSimples);
 
                 System.out.printf("Cliente %s. %n \t Sua conta %s foi criada com sucesso " +
                                 "%n \t Agência: %s %n \t Conta %s %n "
-                        , cliente.getNome(),minhaConta.getTipoConta().getLabel(),minhaConta.getAgencia(),minhaConta.getNumeroConta());
+                        , cliente.getNome(), minhaContaSimples.getTipoConta().getLabel(), minhaContaSimples.getAgencia(), minhaContaSimples.getNumeroConta());
 
             }
         }

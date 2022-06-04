@@ -12,8 +12,8 @@ public class AcessarCliente {
         String login = scanner.next();
         System.out.println("Informe a senha");
         String senha = scanner.next();
-
-        return ClienteRepository.findClientePorLoginESenha(login, senha);
+        ClienteRepository clienteRepository = new ClienteRepository();
+        return clienteRepository.findClientePorLoginESenha(login, senha);
 
     }
 }

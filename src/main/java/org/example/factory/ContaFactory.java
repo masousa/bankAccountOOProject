@@ -6,22 +6,22 @@ import java.util.Random;
 
 public class ContaFactory {
 
-    public static Conta createConta(Cliente cliente, TipoConta tipoConta, String agencia){
+    public static ContaSimples createConta(Cliente cliente, TipoConta tipoConta, String agencia){
         var numeroConta = String.format("%04d", new Random().nextInt());
-        Conta conta = null;
+        ContaSimples contaSimples = null;
         switch (tipoConta){
             case SALARIO:
-                conta = new ContaSalario(numeroConta,agencia);
+                contaSimples = new ContaSimplesSalario(numeroConta,agencia);
                 break;
             case POUPANCA:
-                conta = new ContaPoupanca(numeroConta,agencia);
+                contaSimples = new ContaPoupanca(numeroConta,agencia);
                 break;
             case CORRENTE:
-                conta = new Conta(numeroConta, agencia);
+                contaSimples = new ContaCorrente(numeroConta, agencia);
         }
 
 
-        cliente.addConta(conta);
-        return conta;
+        cliente.addConta(contaSimples);
+        return contaSimples;
     }
 }

@@ -6,12 +6,15 @@ import java.util.Objects;
 public class Cliente {
     private Usuario usuario;
     private String nome;
-    private ArrayList<Conta> contas;
+    private ArrayList<ContaSimples> contaSimples;
+
+    public Cliente() {
+    }
 
     public Cliente(Usuario usuario, String nome) {
         this.usuario = usuario;
         this.nome = nome;
-        this.contas = new ArrayList<>();
+        this.contaSimples = new ArrayList<>();
     }
 
     public Usuario getUsuario() {
@@ -23,11 +26,28 @@ public class Cliente {
     }
 
 
-    public void addConta(Conta conta){
-        contas.add(conta);
+    public void addConta(ContaSimples contaSimples) {
+        this.contaSimples.add(contaSimples);
     }
 
-    public ArrayList<Conta> getContas() {
-        return contas;
+    public ArrayList<ContaSimples> getContas() {
+        return contaSimples;
+    }
+
+    public void setContas(ArrayList<ContaSimples> contaSimples) {
+        this.contaSimples = contaSimples;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return usuario.getLogin().equals(cliente.usuario.getLogin());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(usuario.getLogin());
     }
 }
