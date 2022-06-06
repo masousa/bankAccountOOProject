@@ -1,8 +1,11 @@
 package org.example;
 
 import org.example.dominios.Cliente;
+import org.example.dominios.ContaPoupanca;
+import org.example.dominios.IContaSimples;
 import org.example.dominios.Usuario;
 import org.example.repository.ClienteRepository;
+import org.example.repository.ContaRepository;
 import org.example.telas.AcessarConta;
 import org.example.telas.CriarConta;
 
@@ -13,7 +16,12 @@ public class Main {
     public static void main(String[] args) {
 
         ClienteRepository repository = new ClienteRepository();
-        repository.save(new Cliente(new Usuario("loginDeVergonha", "123"), "nome qualquer"));
+        repository.save(new Cliente(new Usuario("outro cara aqui", "123"), "outro usuario qualquer"));
+
+        ContaRepository contaRepository = new ContaRepository();
+        IContaSimples contaPoupanca = new ContaPoupanca("123654", "1324");
+
+        contaRepository.save(contaPoupanca);
 
         Scanner scanner = new Scanner(System.in);
 

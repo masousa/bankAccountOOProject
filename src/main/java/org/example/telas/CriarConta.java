@@ -6,6 +6,7 @@ import org.example.dominios.TipoConta;
 import org.example.factory.ContaFactory;
 import org.example.repository.ClienteRepository;
 import org.example.repository.ContaRepository;
+import org.example.repository.IRepository;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -39,7 +40,7 @@ public class CriarConta {
                 //TODO avaliar se o numero da conta já existe e se é menor que zero.
                 ContaSimples minhaContaSimples = ContaFactory.createConta(cliente, tipoConta,agencia);
                 if(opcaoExisteCliente>1){
-                    ClienteRepository repository = new ClienteRepository();
+                    IRepository repository = new ClienteRepository();
                     repository.save(cliente);
                 }
 
