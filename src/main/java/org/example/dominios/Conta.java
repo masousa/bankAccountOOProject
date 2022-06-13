@@ -9,7 +9,7 @@ public abstract class Conta extends ContaSimples implements IConta {
 
     @Override
     public void depositar(BigDecimal valor) {
-        this.addTransacao(new Transacao(valor, TipoTransacao.CREDITO));
+        getTransacoes().add(new Transacao(valor, TipoTransacao.CREDITO));
     }
 
 

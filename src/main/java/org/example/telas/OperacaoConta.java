@@ -2,7 +2,9 @@ package org.example.telas;
 
 import org.example.dominios.ContaSimples;
 import org.example.exception.SaldoInvalidoException;
+import org.example.services.RealizarSaque;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -25,7 +27,8 @@ public class OperacaoConta {
                     try {
                         System.out.println("Quanto deseja sacar?");
                         double valor = scanner.nextDouble();
-                        if (Objects.nonNull(contaSimples.sacar(valor))) {
+                        RealizarSaque realizarSaque = new RealizarSaque();
+                        if (Objects.nonNull(realizarSaque.execute(BigDecimal.valueOf(valor), contaSimples))) {
                             System.out.println("Sucesso ao realizar o saque");
                         }
                     }catch (SaldoInvalidoException saldoInvalidoException){

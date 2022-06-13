@@ -3,7 +3,6 @@ package org.example.dominios;
 import org.example.exception.SaldoInvalidoException;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,21 +40,6 @@ public abstract class ContaSimples implements IContaSimples {
         return tipoConta;
     }
 
-    public abstract void validarSaldoParaSaque(Double valor) throws SaldoInvalidoException;
-
-    public BigDecimal sacar(BigDecimal valor) {
-
-        addTransacao(new Transacao(valor, TipoTransacao.DEBITO));
-        return valor;
-    }
-
-    public BigDecimal sacar(Double valor) throws SaldoInvalidoException {
-        validarSaldoParaSaque(valor);
-
-        BigDecimal valorBigdecimal = BigDecimal.valueOf(valor);
-        return sacar(valorBigdecimal);
-    }
-
     public BigDecimal transferir(BigDecimal valor) {
         return BigDecimal.ZERO;
     }
@@ -81,12 +65,7 @@ public abstract class ContaSimples implements IContaSimples {
         return null;
     }
 
-    @Override
-    public List<Transacao> extrato(LocalDate dateStart, LocalDate dateEnd) {
-        return null;
-    }
-
-    protected void addTransacao(Transacao transacao) {
-        this.transacoes.add(transacao);
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 }
