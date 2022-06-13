@@ -38,6 +38,7 @@ public class CriarConta {
             }else{
 
                 //TODO avaliar se o numero da conta já existe e se é menor que zero.
+                //TODO mover a ação de criar uma conta para um serviço de negócio especifico.
                 ContaSimples minhaContaSimples = ContaFactory.createConta(cliente, tipoConta,agencia);
                 if(opcaoExisteCliente>1){
                     IRepository repository = new ClienteRepository();

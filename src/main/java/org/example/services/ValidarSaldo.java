@@ -9,8 +9,6 @@ public class ValidarSaldo {
 
 
     public void execute(BigDecimal bigDecimal, ContaSimples contaSimples) throws SaldoInvalidoException {
-        System.out.println("Precisa retirar a porcentagem do banco");
-        //Verificar se tem saldo
         ObterSaldo obterSaldo = new ObterSaldo();
         BigDecimal saldoConta = obterSaldo.execute(contaSimples);
 
